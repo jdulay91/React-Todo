@@ -10,8 +10,7 @@ export class TodoList extends Component {
                 {this.props.todos.map(todo=>(
                     <Todo key={todo.id} toggleItem={this.props.toggleItem} task={this.task} todo={todo}/>
                 ))}
-                <button onClick={(e)=>this.props.clearTodo(e)}>Remove Done Tasks</button>
-                             
+                <button onClick={()=>this.props.clearTodo()}>Remove Done Tasks</button>                             
             </div>
         )
     }

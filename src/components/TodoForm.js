@@ -9,14 +9,11 @@ export class TodoForm extends Component {
         }
     }
 
-    onChange = e => this.setState({task:e.target.value})
-    onSubmit = e => {
-        const { addTodo } = this.props 
+    onChange = e => this.setState({[e.target.name]:e.target.value})
+    onSubmit = e => {        
         e.preventDefault();
-        addTodo(this.state.task);
-        this.setState({
-            task:''
-        })
+        this.props.addTodo(this.state.task);
+        this.setState({task:''})
     }    
 
     render() {
@@ -25,12 +22,12 @@ export class TodoForm extends Component {
                 <input
                 type='text'
                 name='task'
+                placeholder='Add Task'
                 value={this.state.task}
                 onChange={this.onChange}
                 />
                 <button>New Task</button>
             </form>
-            
  
         )
     }

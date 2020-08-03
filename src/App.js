@@ -41,8 +41,7 @@ class App extends React.Component {
     });
   };
 
-  addTodo =e => (todoItem) => {
-    e.preventDefault()
+  addTodo = (todoItem) => {   
     const newTodo = {
       task: todoItem,
       id: new Date(),
@@ -53,10 +52,13 @@ class App extends React.Component {
     });
   };
 
-  clearTodo = (e) => {
-    e.preventDefault()
-    this.setState({todos:this.state.todos.filter(todo=>!todo.completed)})
+  clearTodo= e => {
+    this.setState({
+      todos:this.state.todos.filter(todo=>!todo.completed)
+    })
+
   }
+  
 
   render() {
     return (
